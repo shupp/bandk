@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS `Images`;
+CREATE TABLE `Images` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `type` INT(1) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `idx_type` (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

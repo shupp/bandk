@@ -1,0 +1,27 @@
+body {
+    background: #E5ECF3 none repeat scroll 0 0;
+    text-align: center;
+}
+
+div {
+    display: inline;
+    float:none;
+}
+
+div.container {
+    margin-top:15%;
+    margin-bottom:15%;
+    margin-left:15%;
+    margin-right:15%;
+    height:70%;
+    width:70%;
+}
+
+div a img {
+    margin:10px;
+    border-style:none;
+    height:auto;
+    max-height:400px;
+    max-width:400px;
+    vertical-align: middle;
+}
