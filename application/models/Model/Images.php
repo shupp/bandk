@@ -35,14 +35,14 @@ class Model_Images
     public function getUniqueImage($type)
     {
         if ($type == self::TYPE_BOOBS) {
-            $function = 'getAllBoobsIDS';
+            $function = 'getAllBoobsIDs';
             $seen     = 'boobsSeen';
         } else {
-            $function = 'getAllKittensIDS';
+            $function = 'getAllKittensIDs';
             $seen     = 'kittensSeen';
         }
 
-        $all  = $this->$function();
+        $all  = $this->{$function}();
         if (!isset($this->_session->{$seen})) {
             $this->_session->{$seen} = array();
         }
@@ -76,11 +76,12 @@ class Model_Images
                 ? self::TYPE_BOOBS : self::TYPE_KITTENS;
         $key  = ($type == self::TYPE_BOOBS) ? 'allboobs' : 'allkittens';
 
+        $ids = null;
         $result = $this->_cache->load($key);
         if ($result) {
             $ids = unserialize($this->_cache->load($key));
         }
-        if (isset($ids)) {
+        if ($ids === null) {
             $query   = "SELECT * from Images WHERE type=" . $type . ";";
             $results = $this->_db->fetchAll($query);
             $ids   = array();
