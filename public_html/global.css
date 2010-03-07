@@ -6,6 +6,7 @@ body {
 div {
     display: inline;
     float:none;
+    font-family: sans-serif;
 }
 
 div.container {

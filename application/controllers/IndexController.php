@@ -8,4 +8,10 @@ class IndexController extends Zend_Controller_Action
         $this->view->boobsImage = $model->getBoobsImage();
         $this->view->kittensImage = $model->getKittensImage();
     }
+
+    public function permalinkAction()
+    {
+        list($this->view->boobsImage, $this->view->kittensImage) = explode('_', $this->_getParam('images'));
+        $this->render('index');
+    }
 }
